@@ -3,11 +3,15 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+    <h3>You're already logged in! Go to the <a href="{% url 'dashboard' %}">dashboard</a></h3>
+    {% else %}
     <h1>Login</h1>
     {% if form.errors %}
         <p>Your username and password didn't match. Please try again.</p>
     {% else %}
-        <p>Please, use the following form to login.</p>
+        <p>Please, use the following form to log-in. If you don't have an
+account <a href="{% url 'register' %}">register here</a></p>
     {% endif %}
 
     <div class="content-fluid">
@@ -23,4 +27,5 @@
             </div>
         </div>
     </div>
+    {% endif %}
 {% endblock %}
