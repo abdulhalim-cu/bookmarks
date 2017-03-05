@@ -10,7 +10,7 @@ SECRET_KEY = 'm13lsl9z7*-tp*s_u^rx+$&^e=5v_8a+%*8%*n=)!fz6$+w#4^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['abdulhalim.com']
 
 
 # Application definition
@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social.apps.django_app.default'
 ]
 
 MIDDLEWARE = [
@@ -88,6 +89,8 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
+    'social.backends.facebook.FacebookOAuth2',
+    'social.backends.twitter.TwitterOAuth',
 )
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -127,3 +130,6 @@ LOGOUT_URL = reverse_lazy('logout')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+from .settings_secret import *
