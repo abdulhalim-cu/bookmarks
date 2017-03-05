@@ -92,3 +92,4 @@ ENV/
 .ropeproject
 
 .idea/
+bookmarks/bookmarks/settings_secret.py
